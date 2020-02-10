@@ -9,4 +9,3 @@
 /**/*.moc
 /**/qrc_*.cpp
 /**/*.user
-/lib/*
