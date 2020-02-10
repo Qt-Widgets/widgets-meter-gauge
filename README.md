@@ -1,2 +1,3 @@
-# widgets
-Just Qt widgets
+# About
+
+Just Qt widgets.
