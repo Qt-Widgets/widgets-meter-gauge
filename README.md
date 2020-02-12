@@ -28,7 +28,7 @@ m.setDrawValuePrecision( 0 );
 m.setScaleLabelPrecision( 0 );
 m.setThresholdRange( 0, 110, 0 );
 m.setThresholdRange( 110, 130, 1, Qt::yellow );
-m.setThresholdRange( 130, 220, 2, Qt::red );
+m.setThresholdRange( 130, 220.1, 2, Qt::red );
 ```
 
 ## Screenshot

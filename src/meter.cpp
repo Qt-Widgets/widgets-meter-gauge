@@ -147,9 +147,9 @@ MeterPrivate::drawRanges( QPainter & painter, DrawParams & params )
 	{
 		painter.setPen( QPen( it.value().color, params.scaleWidth ) );
 		const qreal angle = params.startScaleAngle +
-		params.scaleDegree * ( it.value().start / ( maxValue - minValue ) );
+			params.scaleDegree * ( it.value().start / ( maxValue - minValue ) );
 		const qreal span = params.startScaleAngle +
-		params.scaleDegree * ( it.value().stop / ( maxValue - minValue ) ) - angle;
+			params.scaleDegree * ( it.value().stop / ( maxValue - minValue ) ) - angle;
 		painter.drawArc( r, ( -90.0 - angle ) * 16, -span * 16 );
 	}
 
@@ -679,7 +679,7 @@ Meter::setThresholdRange( qreal start, qreal stop, int thresholdIndex,
 QSize
 Meter::minimumSizeHint() const
 {
-	return QSize( d->radius * 2 + 1, d->radius * 2 + 1 );
+	return QSize( d->radius * 2 + 2, d->radius * 2 + 2 );
 }
 
 QSize
@@ -693,6 +693,7 @@ Meter::paintEvent( QPaintEvent * )
 {
 	QPainter p( this );
 	p.setRenderHint( QPainter::Antialiasing );
+	p.translate( 1.0, 1.0 );
 
 	MeterPrivate::DrawParams params;
 
