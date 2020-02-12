@@ -351,7 +351,8 @@ MeterPrivate::thresholdFired()
 
 	for( auto it = ranges.cbegin(), last = ranges.cend(); it != last; ++it )
 	{
-		if( value >= it.value().start && value < it.value().stop )
+		if( ( value > it.value().start || qAbs( value - it.value().start ) < 0.000001 ) &&
+			value < it.value().stop )
 		{
 			if( currentThreshold != it.key() )
 				res = true;
@@ -424,7 +425,8 @@ Meter::value() const
 void
 Meter::setValue( qreal v )
 {
-	if( v >= d->minValue && v <= d->maxValue )
+	if( ( v > d->minValue || qAbs( v - d->minValue ) < 0.000001 ) &&
+		( v < d->maxValue || qAbs( v - d->maxValue ) < 0.000001 ) )
 	{
 		d->value = v;
 
